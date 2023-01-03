@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{{ book.title }}
+{% endblock %}
+{% block content %}
+<div class="book-detail">
+<img src="{{ book.image.url }}">
+<h1>{{ book.title }}</h1>
+<h2>
+    {{ book.author }}
+</h2>
+<h2>   
+    {% for genre in book.genre.all %}
+        <li> {{ genre }}</li>        
+    {% endfor %}    
+</h2>
+
+<h2>
+    {{ book.language }}
+</h2>
+{{ book.summary|linebreaks }}
+</div>
+{% endblock %}
