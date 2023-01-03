@@ -18,6 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # User management
+    path("accounts/", include("allauth.urls")),
     path('', include("bookcore.urls")),
     
 ]
