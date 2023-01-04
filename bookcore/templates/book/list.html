@@ -10,10 +10,9 @@
         <img class="thumbnail" src="{{book.image.url}}">
         <div class="box-element product">
             <h6><strong>{{book.title}}</strong></h6>
-            <hr>
-            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Adicionar a mi lista</button>
-            
-            <a class="btn btn-outline-success" href="{{ book.get_absolute_url }}">Ver</a>            
+            <hr>            
+            <a class="btn btn-outline-success" href="{% url 'book-add' book.id %}">Add to my list</a> 
+            <a class="btn btn-outline-success" href="{{ book.get_absolute_url }}">View</a>          
 
         </div>
     </div>
