@@ -5,21 +5,31 @@
 {% endblock %}
 {% block content %}
 <div class="book-detail">
-<img src="{{ book.image.url }}">
-<h1>{{ book.title }}</h1>
-<h2>
-    {{ book.author }}
-</h2>
-<h2>   
-    {% for genre in book.genre.all %}
-        <li> {{ genre }}</li>        
-    {% endfor %}    
-</h2>
+    <div class="row">
+        <div id="book" class="col-lg-3">
+            <img src="{{ book.image}}" class="thumbnail">
+        </div>
+        <div id="book" class="col-lg-9">
+            <h3>Title: {{ book.title }}</h3>
+            <h5> Authors:   
+                {% for a in book.author.all %}
+                    <li> {{ a }}</li>        
+                {% endfor %}    
+            </h5>
+            <h5> Language:
+                {{ book.language }}
+            </h5>
+            <h5>Description:</h5>
+            {{ book.summary|linebreaks }}
+            <a class="btn btn-primary" href="{% url 'book-add' book.id %}">Add my list</a>
+        </div>
+    </div>
 
-<h2>
-    {{ book.language }}
-</h2>
-{{ book.summary|linebreaks }}
+
+
+
+
+
 </div>
 
 {% endblock %}

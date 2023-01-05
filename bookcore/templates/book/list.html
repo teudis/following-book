@@ -10,9 +10,13 @@
         <img class="thumbnail" src="{{book.image}}">
         <div class="box-element product">
             <h6><strong>{{book.title}}</strong></h6>
-            <hr>            
+            <hr>
+            {% if user.is_authenticated %}           
             <a class="btn btn-primary" href="{% url 'book-add' book.id %}">Add my list</a> 
-            <a class="btn btn-outline-success" href="{{ book.get_absolute_url }}">View</a>          
+            <a class="btn btn-outline-success" href="{{ book.get_absolute_url }}">View</a>  
+            {% else %}
+            <a class="btn btn-outline-success" href="{{ book.get_absolute_url }}">View</a> 
+            {% endif %}   
 
         </div>
     </div>

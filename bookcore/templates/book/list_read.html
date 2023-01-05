@@ -21,7 +21,7 @@
         <thead>
           <tr>
             <th width="35%">Title</th>
-            <th>Author</th>                      
+            <th>Authors</th>                      
             <th>Actions</th>
           </tr>
         </thead>
@@ -30,7 +30,9 @@
             {% for b in list.books.all %}
           <tr>
             <td>{{ b.title }} </td>
-            <td>{{ b.author }} </td>                       
+            <td>{% for a in b.author.all %}
+              <li> {{ a }}</li>        
+          {% endfor %} </td>                       
             <td>
               
               <form method="POST" action="eliminar/{{postre.id}}">
