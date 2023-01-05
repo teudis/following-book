@@ -6,16 +6,18 @@
 {% block content %}
 <div class="row">
     {% for book in books %}
-    <div class="col-lg-4">
-        <img class="thumbnail" src="{{book.image.url}}">
+    <div id="book" class="col-lg-4">
+        <img class="thumbnail" src="{{book.image}}">
         <div class="box-element product">
             <h6><strong>{{book.title}}</strong></h6>
             <hr>            
-            <a class="btn btn-outline-success" href="{% url 'book-add' book.id %}">Add to my list</a> 
+            <a class="btn btn-primary" href="{% url 'book-add' book.id %}">Add my list</a> 
             <a class="btn btn-outline-success" href="{{ book.get_absolute_url }}">View</a>          
 
         </div>
     </div>
     {% endfor %}
+    <br>
+    {% include "book/pagination.html" %}
 </div>
 {% endblock %}

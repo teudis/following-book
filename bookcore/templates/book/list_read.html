@@ -39,10 +39,7 @@
                 
                 <div class="btn-group">
                   <a href="{{ b.get_absolute_url }}" title="Ver" type="button" class="btn btn-success">Ver </a>                  
-                  <button class="btn btn-danger" onclick="return eliminar();" type="submit">
-                    Eliminar
-                  </button>
-                  <!-- <a href="eliminar/{{postre.id}}" title="Eliminar"><i class="fas fa-trash"></i> </a> -->                          
+                  <a href="{% url 'book-remove' b.id %}" title="Ver" type="button" class="btn btn-danger">Eliminar </a>  
                 </div>
 
               </form>
