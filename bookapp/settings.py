@@ -56,6 +56,10 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "django_extensions",
+    "rest_framework",
+    "rest_framework.authtoken",
+    "dj_rest_auth",
+    "drf_spectacular",
     # LOCAL APP
     'bookcore',
     'accounts',
@@ -163,5 +167,23 @@ ACCOUNT_LOGOUT_REDIRECT = "home"
 
 ACCOUNT_SESSION_REMEMBER = True
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # new
-CRISPY_TEMPLATE_PACK = "bootstrap5" # new
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" 
+CRISPY_TEMPLATE_PACK = "bootstrap5" 
+
+REST_FRAMEWORK = {
+"DEFAULT_PERMISSION_CLASSES": [
+"rest_framework.permissions.IsAuthenticated",
+],
+"DEFAULT_AUTHENTICATION_CLASSES": [
+"rest_framework.authentication.SessionAuthentication",
+"rest_framework.authentication.TokenAuthentication",
+],
+"DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema", 
+}
+
+SPECTACULAR_SETTINGS = {
+"TITLE": "Books API Project",
+"DESCRIPTION": "Books from Google API Books",
+"VERSION": "1.0.0",
+# OTHER SETTINGS
+}
