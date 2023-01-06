@@ -9,4 +9,10 @@
 2- Carga inicial de datos
 <br>
   python manage.py runscript load
+ <br>
+3- Ejecutar app
+  <br>
+  python manage.py runserver
+
+
 
